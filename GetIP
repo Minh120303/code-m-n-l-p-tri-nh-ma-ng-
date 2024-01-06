@@ -1,0 +1,13 @@
+public class GetIP {
+    public static void main(String[] args) {
+        //lay dai chi IP cua 1 may chu 
+        try {
+            //lay dia chi ip cua 1 trang web
+            InetAddress inet=InetAddress.getByName("www.google.com");
+            //in ra dia chi ip
+            System.out.println("Dia chi ip cua trang web google.com"+
+                    inet.getHostAddress());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
