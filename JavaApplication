@@ -1,0 +1,16 @@
+public static void main(String[] args) {
+        // TODO code application logic here
+        try {
+            //Lay thong tin vè IP của gg
+            InetAddress inet = InetAddress.getByName("www.google.com");
+            //B2- Thu ket nối trong 5s
+            boolean isKetNoi = inet.isReachable(5000);
+            if (isKetNoi) {
+                System.out.println("Ket noi thanh cong voi Internet");
+            } else {
+                System.out.println("Ket noi khong thanh cong");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
