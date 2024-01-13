@@ -1,0 +1,13 @@
+public class MyThead extends Thread {
+    //cong viec ma luong can thuc hien 
+    @Override
+    public void run() {
+        System.out.println("Luong bat dau chay");
+    }
+    public static void main(String[] args) {
+        //tao luong 
+        MyThead myThead =new MyThead();
+        //dat dau luong
+        myThead.start();
+    }
+}
