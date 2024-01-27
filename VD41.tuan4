@@ -1,0 +1,38 @@
+public static void main(String[] args) {
+        try {
+            //tao doi tương inetadress bang ten may chu 
+            InetAddress dcByName=InetAddress.getByName("www.google.com");
+            System.out.println("Lay dia dia chi tu Name:"
+            +dcByName.getHostAddress());
+            //c2.tao doi tuong inetaddress bang dia chi IP 
+            InetAddress dcByID=InetAddress.getByName("216.239.38.120");
+            System.out.println("Lay dia chi tu IP :"+
+                    dcByID);
+            ///---------------------------------------------------
+            InetAddress dcByName1
+                    =InetAddress.getByName("www.vnexpress.net");
+            System.out.println("Host Nam:"+ dcByName1.getHostName());
+            System.out.println("Dc IP:"+dcByName1.getHostAddress());
+            //---------------------------------------------------
+            InetAddress dcByName2
+                    =InetAddress.getByName("www.vnexpress.net");
+             // kiem tra xem dia chi IP co phai IP4 khong?
+             boolean isIP4=dcByName2 instanceof java.net.Inet4Address;
+             System.out.println("co phai IP4 khong?" + isIP4);
+             //kiem tra dia chi IP co phai IP6 khong ?
+             boolean isIP6=dcByName2 instanceof java.net.Inet6Address;
+             System.err.println("co phai IP6 khong"+isIP6);
+            URL url= new URL("https://example.com/landing-page?utm_source=company-x&utm_medium=newsletter&utm_campaign=march_01&project-id=123");
+              //
+              System.out.println("Protocol:" + url.getProtocol());
+              System.out.println("Host:" +url.getHost());
+              System.err.println("Port:" +url.getPort());
+              System.err.println("Path:" +url.getPath());
+              System.err.println("tham chieu:" +url.getRef());
+              System.err.println("truy van:"+url.getQuery());
+             
+                     
+        }catch(Exception e) {
+            
+        }
+    }
