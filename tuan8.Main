@@ -1,0 +1,40 @@
+
+package javaapplication3.tuan8;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+        
+public class Main {
+    public static void main(String[] args) {
+        //tao doi tương student
+        Student student=new Student("Nguyen van A",20);
+        //tuan tu hoa doi tuong vao ghi vao file 
+        try{
+            FileOutputStream fileOut
+                    =new FileOutputStream ("student.ser");
+             ObjectOutputStream out
+                     =new ObjectOutputStream(fileOut);
+             out.writeObject(student);
+             out.close();
+             fileOut.close();
+             System.out.println("Da tuan tu hoa va ghi doi tuong vao file");
+        } catch (Exception e ) {
+              e.printStackTrace();
+    }
+        // doc doi tuong tu file tuan tu hoa 
+        try {
+            FileInputStream fileIn =new FileInputStream("student.txt");
+            ObjectInputStream in =new ObjectInputStream(fileIn);
+           Student stdFStudent=(Student)in.readObject();
+           in.close();
+           fileIn.close();
+            System.out.println("da doc doi tuong tu file");
+            System.out.println("Ten:"+stdFStudent.getName());
+            System.out.println("Tuoi:"+stdFStudent.getAge());
+                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
