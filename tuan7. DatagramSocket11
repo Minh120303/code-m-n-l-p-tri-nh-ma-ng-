@@ -1,0 +1,30 @@
+
+package javaapplication3.tuan7;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+
+public class DatagramSocket11 {
+    public static void main(String[] args) {
+        try {
+            //tao object datagramsocket
+            DatagramSocket socket=new DatagramSocket();
+            //du lieu can gui 
+            byte[] data="xin chao cac ban".getBytes();
+            //xac dinh dia chi IP va cong cua may nhan
+           InetAddress address=InetAddress.getByName ("localhost");
+           int port=12345;
+           //tao goi du lieu
+           DatagramPacket packet= new DatagramPacket(data,data.length,address, port);
+           //gui
+           socket.send(packet);
+           
+           //dong
+           
+        }
+        catch (Exception e) {
+        }
+    }
+}
