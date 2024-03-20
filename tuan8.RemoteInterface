@@ -1,0 +1,10 @@
+package tuan8;
+
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface RemoteInterface extends Remote{
+    //phuowng thuc cho phep trieu goi
+    String noiXinChao () throws RemoteException;
+}
