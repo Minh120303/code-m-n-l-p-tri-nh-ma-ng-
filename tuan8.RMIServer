@@ -1,0 +1,24 @@
+package tuan8;
+import java.rmi.Naming;
+import java.rmi.registry.LocateRegistry;
+
+
+public class RMIServer {
+    public static void main(String[] args) {
+        try {
+            //khoi tao may chu RMI
+            LocateRegistry.createRegistry(1011);
+            //lao doi tuong cua lop RemteLm
+            RemoteInterface obj=new RemoteImp();
+            //dang ky doi tuong voi ten"RemoteObject"
+            Naming.rebind("//localhost:1011/RemoteObject", obj);
+ 
+            //dua ra thong tin 
+            System.out.println("Server da san song ");
+            
+        } catch (Exception e) {
+            System.err.println("Loi:"+e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
