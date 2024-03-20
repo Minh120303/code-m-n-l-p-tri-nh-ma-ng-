@@ -1,0 +1,63 @@
+
+package javaapplication3;
+
+public class VDD6 {
+   private final Object moObject=new Object();
+   private boolean isCoTien=false;// kiem tra tien
+   public void kiemTien(){//kiem tien 
+       synchronized (moObject){//giu khoa
+           while (isCoTien){
+               moObject.wait ();
+           }
+           //lap lai viec kiem tien 
+           System.out.println("kiem tien ...");
+           try {
+               Thread.sleep(2000);
+           } catch (Exception e){
+               e.printStackTrace();
+           }
+           //sau khi kiem tien xong 
+           isCoTien =true;
+           moObject.notify();//bao chuan bi tieu tien 
+       }
+   }
+   // ham tieu tien 
+   public void tieuTien() throws IndexOutOfBoundsException, InterruptedException
+   {
+       synchronized(moObject){
+           while (isCoTien){ 
+               moObject.wait();
+               
+           }
+           System.out.println("Tieu tien ...");
+           Thread.sleep(2000);
+           isCoTien=false; // tieu het tien
+           moObject.notify();//bao da het tien 
+                   
+       }
+   }
+    public static void main(String[] args) {
+        VDD6 ex=new VDD6();
+        Thread kt=new Thread(()->{
+            try {
+                while (true) {                    
+                    ex.tieuTien();
+                }
+            }catch (Exception e){ 
+                
+            }
+        });
+         Thread tt=new Thread(()-> { 
+           try {
+               while (true) {
+                   ex.kiemTien();
+               }
+           } catch (Exception e) {
+           }
+       });
+        //chay tieu tien 
+        kt.start();
+        tt.start();
+        
+    }
+}
