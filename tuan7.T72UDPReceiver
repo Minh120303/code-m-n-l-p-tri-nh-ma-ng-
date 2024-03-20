@@ -1,0 +1,28 @@
+
+package javaapplication3.tuan7;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
+
+public class T72UDPReceiver {
+    public static void main(String[] args) {
+        try {
+            //tao doi tương voi cong 2345
+            DatagramSocket socket=new DatagramSocket(2345);
+            //tao mang du lieu nhan duoc
+            byte[] buffor =new byte [1024];
+            //doi tuong nhan du lieu 
+            DatagramPacket packet=new DatagramPacket(buffor,buffor.length);
+            //thuc hien nhan
+            socket.receive(packet);
+            //doc du lieu và in ra man hinh 
+            String receiveData=new String(packet.getData(),0,packet.getLength());
+            System.out.println("du lieu nhan duoc :"+ receiveData);
+            //dong ket noi 
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
