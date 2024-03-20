@@ -1,0 +1,8 @@
+package javaapplication3;
+
+public class VDD1 {
+     private int count = 0;
+    public synchronized void demTang(){ //Hàm để đồng bộ hóa
+        count++;
+    }
+}
