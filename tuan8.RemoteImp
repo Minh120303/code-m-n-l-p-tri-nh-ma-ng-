@@ -1,0 +1,18 @@
+
+package tuan8;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class RemoteImp extends UnicastRemoteObject
+        implements RemoteInterface{
+    //Phuong thuc ket noi 
+    public RemoteImp() throws RemoteException{
+        super();
+    }           
+    // ghi de phuong thuc noiXinChao tu interface
+    @Override
+    public String noiXinChao() throws RemoteException{
+        return "Loi noi xin cho tu server";
+    }    
+}
