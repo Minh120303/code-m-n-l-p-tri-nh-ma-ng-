@@ -1,0 +1,24 @@
+
+package javaapplication3;
+public class VDD4 {
+    private final Object lc=new Object ();// doi tuong khoa 
+    public synchronized  void pt1 (){ // phuong thuc dong bo hoa 
+        
+    }
+    public synchronized void pt2(){//phuong thuc dong bo hoa 
+      synchronized(lc)//giu khoa 
+        {
+            
+        }
+    }
+    public static void main(String[] args) {
+        Thread th=new Thread(()->{
+            //code
+        });
+        th.start();
+        try {
+            //phuong thuc 1 la tien trinh     
+        } catch (Exception e){     
+        }
+    }
+}
