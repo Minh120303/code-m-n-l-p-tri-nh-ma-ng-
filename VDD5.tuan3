@@ -1,0 +1,19 @@
+package javaapplication3;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class VDD5 {
+    private final Object monitor=new Object();
+    public void doi() throws InterruptedException
+    {
+            monitor.wait();
+    }
+    public void danhThuc()
+    {
+        synchronized(monitor)
+        {
+            monitor.notify();//danh thuc
+        }
+    }
+}
