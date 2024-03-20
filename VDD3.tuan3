@@ -1,0 +1,42 @@
+
+package javaapplication3;
+
+
+public class VDD3 {
+    private int count=0;
+    public synchronized void demTang ()// phuong thuc dong bo hoa 
+    {
+        count++;
+    }
+    public synchronized void demGiam()//phuong thuc 2 dong bo hoa 
+    {
+        count-=2;
+    }
+    public int getCount()// phuong thuc khong dong bo hoa 
+    {
+        return count;
+    }
+    public static void main(String[] args) {
+        VDD3 c=new VDD3();
+        Thread inTh=new Thread(()->{
+            for(int i=0; i<1000; i++){
+             c.demTang();
+        }
+        });
+       Thread deTh=new Thread(()->{//tao luong giam
+            for(int i=0; i<1000; i++){
+             c.demGiam();// goi ham dong bo hoa 
+        }
+        });
+       inTh.start();//chay luong
+       deTh.start();
+       try {
+           inTh.join();// doi luong nay thanh 
+           deTh.join();
+           
+       } catch (Exception e){
+    }
+        System.out.println("ket qua dem cuôi cung :"
+        + c.getCount());
+}
+}
